@@ -1,0 +1,208 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CFB688FA154EBAF1003444B7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFB688F9154EBAF1003444B7 /* main.cpp */; };
+		CFB688FC154EBAF1003444B7 /* ZAquarium.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFB688FB154EBAF1003444B7 /* ZAquarium.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CFB688F3154EBAF1003444B7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				CFB688FC154EBAF1003444B7 /* ZAquarium.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		CFB688F5154EBAF1003444B7 /* ZAquarium */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ZAquarium; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB688F9154EBAF1003444B7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		CFB688FB154EBAF1003444B7 /* ZAquarium.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ZAquarium.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFB688F2154EBAF1003444B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFB688EA154EBAF1003444B7 = {
+			isa = PBXGroup;
+			children = (
+				CFB688F8154EBAF1003444B7 /* ZAquarium */,
+				CFB688F6154EBAF1003444B7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFB688F6154EBAF1003444B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFB688F5154EBAF1003444B7 /* ZAquarium */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFB688F8154EBAF1003444B7 /* ZAquarium */ = {
+			isa = PBXGroup;
+			children = (
+				CFB688F9154EBAF1003444B7 /* main.cpp */,
+				CFB688FB154EBAF1003444B7 /* ZAquarium.1 */,
+			);
+			path = ZAquarium;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFB688F4154EBAF1003444B7 /* ZAquarium */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFB688FF154EBAF1003444B7 /* Build configuration list for PBXNativeTarget "ZAquarium" */;
+			buildPhases = (
+				CFB688F1154EBAF1003444B7 /* Sources */,
+				CFB688F2154EBAF1003444B7 /* Frameworks */,
+				CFB688F3154EBAF1003444B7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZAquarium;
+			productName = ZAquarium;
+			productReference = CFB688F5154EBAF1003444B7 /* ZAquarium */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFB688EC154EBAF1003444B7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = CFB688EF154EBAF1003444B7 /* Build configuration list for PBXProject "ZAquarium" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CFB688EA154EBAF1003444B7;
+			productRefGroup = CFB688F6154EBAF1003444B7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFB688F4154EBAF1003444B7 /* ZAquarium */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFB688F1154EBAF1003444B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB688FA154EBAF1003444B7 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CFB688FD154EBAF1003444B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CFB688FE154EBAF1003444B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CFB68900154EBAF1003444B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CFB68901154EBAF1003444B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFB688EF154EBAF1003444B7 /* Build configuration list for PBXProject "ZAquarium" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFB688FD154EBAF1003444B7 /* Debug */,
+				CFB688FE154EBAF1003444B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFB688FF154EBAF1003444B7 /* Build configuration list for PBXNativeTarget "ZAquarium" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFB68900154EBAF1003444B7 /* Debug */,
+				CFB68901154EBAF1003444B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFB688EC154EBAF1003444B7 /* Project object */;
+}
