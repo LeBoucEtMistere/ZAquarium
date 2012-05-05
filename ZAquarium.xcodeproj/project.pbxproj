@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		CFB688FA154EBAF1003444B7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFB688F9154EBAF1003444B7 /* main.cpp */; };
 		CFB688FC154EBAF1003444B7 /* ZAquarium.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFB688FB154EBAF1003444B7 /* ZAquarium.1 */; };
+		CFB68904154EBB53003444B7 /* Aquarium.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFB68903154EBB53003444B7 /* Aquarium.cpp */; };
+		CFB68907154EBB62003444B7 /* Poisson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFB68906154EBB62003444B7 /* Poisson.cpp */; };
+		CFB6890A154EBB6E003444B7 /* Algue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFB68909154EBB6E003444B7 /* Algue.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +31,12 @@
 		CFB688F5154EBAF1003444B7 /* ZAquarium */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ZAquarium; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB688F9154EBAF1003444B7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CFB688FB154EBAF1003444B7 /* ZAquarium.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ZAquarium.1; sourceTree = "<group>"; };
+		CFB68902154EBB4C003444B7 /* Aquarium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aquarium.h; sourceTree = "<group>"; };
+		CFB68903154EBB53003444B7 /* Aquarium.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Aquarium.cpp; sourceTree = "<group>"; };
+		CFB68905154EBB5C003444B7 /* Poisson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Poisson.h; sourceTree = "<group>"; };
+		CFB68906154EBB62003444B7 /* Poisson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Poisson.cpp; sourceTree = "<group>"; };
+		CFB68908154EBB69003444B7 /* Algue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Algue.h; sourceTree = "<group>"; };
+		CFB68909154EBB6E003444B7 /* Algue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Algue.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +70,12 @@
 			isa = PBXGroup;
 			children = (
 				CFB688F9154EBAF1003444B7 /* main.cpp */,
+				CFB68902154EBB4C003444B7 /* Aquarium.h */,
+				CFB68903154EBB53003444B7 /* Aquarium.cpp */,
+				CFB68905154EBB5C003444B7 /* Poisson.h */,
+				CFB68906154EBB62003444B7 /* Poisson.cpp */,
+				CFB68908154EBB69003444B7 /* Algue.h */,
+				CFB68909154EBB6E003444B7 /* Algue.cpp */,
 				CFB688FB154EBAF1003444B7 /* ZAquarium.1 */,
 			);
 			path = ZAquarium;
@@ -117,6 +132,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFB688FA154EBAF1003444B7 /* main.cpp in Sources */,
+				CFB68904154EBB53003444B7 /* Aquarium.cpp in Sources */,
+				CFB68907154EBB62003444B7 /* Poisson.cpp in Sources */,
+				CFB6890A154EBB6E003444B7 /* Algue.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
