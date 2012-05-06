@@ -38,6 +38,7 @@ public:
     
     Poisson( unsigned int ID);
     Poisson(SEXE sexe, std::string nom, unsigned int ID);
+    virtual ~Poisson();
     
     virtual void afficher() const =0;
     virtual void doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues) ;
@@ -71,6 +72,7 @@ public:
     
     Carnivore(unsigned int ID);
     Carnivore(SEXE sexe, std::string nom,unsigned int ID);
+    virtual ~Carnivore();
     virtual void afficher() const =0;
     void doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues);
     void manger(const std::vector<Poisson*> &poissons);
@@ -92,6 +94,7 @@ public:
     
     Herbivore(unsigned int ID);
     Herbivore(SEXE sexe, std::string nom,unsigned int ID);
+    virtual ~Herbivore();
     virtual void afficher() const =0;
     void doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues);
     void manger(const std::vector<Algue*> &liste_algues);

@@ -51,6 +51,11 @@ Poisson::Poisson(SEXE sexe, std::string nom, unsigned int ID) : m_sexe(sexe), m_
     }
 }
 
+Poisson::~Poisson()
+{
+    
+}
+
 void Poisson::doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues)
 {
     
@@ -102,13 +107,18 @@ Carnivore::Carnivore(SEXE sexe, std::string nom, unsigned int ID) : Poisson(sexe
     srand(time(0));
 
 }
+
+Carnivore::~Carnivore()
+{
+    
+}
     
 void Carnivore::manger(const std::vector<Poisson*> &liste_poissons)
 {
     
     int i = rand() % (liste_poissons.size()+1);
     
-    if(liste_poissons[i] != this )
+    if(liste_poissons[i] != this && typeid(this)!=typeid(liste_poissons[i]) )
     {
         liste_poissons[i]->degats(4);
         m_PV += 5;
@@ -142,6 +152,11 @@ Herbivore::Herbivore(SEXE sexe, std::string nom, unsigned int ID) : Poisson(sexe
     srand(time(0));
 
 
+}
+
+Herbivore::~Herbivore()
+{
+    
 }
 
 void Herbivore::manger(const std::vector<Algue*> &liste_algues)

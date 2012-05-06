@@ -23,7 +23,7 @@ class Aquarium
     
 public:
     Aquarium();
-    ~Aquarium();
+    virtual ~Aquarium();
     void ajouterPoisson(const std::string& nom, SEXE sexe, RACE race);
     void ajouterAlgue();
     void run();

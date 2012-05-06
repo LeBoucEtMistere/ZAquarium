@@ -71,7 +71,8 @@ void Aquarium::ajouterPoisson(const string& nom, SEXE sexe, RACE race)
 
 void Aquarium::ajouterAlgue()
 {
-    m_algues.push_back(new Algue());
+    Algue* ptr = new Algue();
+    m_algues.push_back(ptr);
 
 }
 

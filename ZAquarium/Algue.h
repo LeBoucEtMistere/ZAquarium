@@ -17,13 +17,13 @@ public:
     
     void afficher();
     void doSomething();
-    void degats(int degats);
+    void degats(unsigned int degats);
     
     bool isAlive() const;
 
     
     
-private:
+protected:
      
     bool m_alive;
     int m_PV;

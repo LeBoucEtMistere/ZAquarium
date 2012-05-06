@@ -28,7 +28,7 @@ void Algue::doSomething()
     m_PV += 1;
 }
 
-void Algue::degats(int degats)
+void Algue::degats(unsigned int degats)
 {
     m_PV -= degats;
     
