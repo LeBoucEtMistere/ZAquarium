@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="ZAquarium\Algue.cpp" open="1" top="0" tabpos="7">
+		<Cursor position="440" topLine="8" />
+	</File>
+	<File name="ZAquarium\Aquarium.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="2409" topLine="83" />
+	</File>
+	<File name="ZAquarium\Aquarium.h" open="1" top="0" tabpos="4">
+		<Cursor position="211" topLine="20" />
+	</File>
+	<File name="ZAquarium\Poisson.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="1547" topLine="67" />
+	</File>
+	<File name="ZAquarium\Poisson.h" open="1" top="0" tabpos="2">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="ZAquarium\main.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="217" topLine="10" />
+	</File>
+</CodeBlocks_layout_file>

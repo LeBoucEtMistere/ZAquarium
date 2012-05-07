@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1336350984 source:c:\documents and settings\danielg\my documents\c++\aquarium\zaquarium\aquarium.cpp
+	<iostream>
+	"Aquarium.h"
+
+1336327578 c:\documents and settings\danielg\my documents\c++\aquarium\zaquarium\aquarium.h
+	"Algue.h"
+	"Poisson.h"
+	<vector>
+	<string>
+
+1336322334 c:\documents and settings\danielg\my documents\c++\aquarium\zaquarium\algue.h
+
+1336322334 c:\documents and settings\danielg\my documents\c++\aquarium\zaquarium\poisson.h
+	<string>
+	<vector>
+	"Algue.h"
+
+1336350165 source:c:\documents and settings\danielg\my documents\c++\aquarium\zaquarium\poisson.cpp
+	<iostream>
+	<ctime>
+	<cstdlib>
+	<typeinfo>
+	"Poisson.h"
+
+1336322334 source:c:\documents and settings\danielg\my documents\c++\aquarium\zaquarium\algue.cpp
+	<iostream>
+	"Algue.h"
+
+1336327581 source:c:\documents and settings\danielg\my documents\c++\aquarium\zaquarium\main.cpp
+	<iostream>
+	"Aquarium.h"
+	<cstdlib>
+
