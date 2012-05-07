@@ -9,9 +9,6 @@
 #ifndef ZAquarium_Aquarium_h
 #define ZAquarium_Aquarium_h
 
-
-
-
 #include "Algue.h"
 #include "Poisson.h"
 
@@ -20,7 +17,7 @@
 
 class Aquarium
 {
-    
+
 public:
     Aquarium();
     virtual ~Aquarium();
@@ -28,15 +25,15 @@ public:
     void ajouterAlgue();
     void run();
     void cleanAquarium();
-    
-    
+
+
 private:
-    
+
     std::vector<Poisson*> m_poissons;
     std::vector<Algue*> m_algues;
     unsigned int m_compteurPoissons;
-    
-    
+
+
 };
 
 

@@ -8,20 +8,18 @@
 
 
 #include <iostream>
-
-
-
 #include "Aquarium.h"
 
+#include <cstdlib>
 
 int main (int argc, const char * argv[])
 {
     Aquarium monAquarium;
-    
+
     monAquarium.ajouterPoisson("Pinoquio", MALE, MEROU);
     monAquarium.ajouterPoisson("Bambino", MALE, THON);
     monAquarium.ajouterPoisson("Ella", FEMELLE, CARPE);
-    
+
     monAquarium.ajouterAlgue();
     monAquarium.ajouterAlgue();
 

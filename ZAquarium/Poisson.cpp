@@ -7,6 +7,9 @@
 //
 
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <typeinfo>
 #include "Poisson.h"
 
 using namespace std;
@@ -17,7 +20,7 @@ using namespace std;
 Poisson::Poisson(unsigned int ID) : m_sexe(MALE), m_nom("Nemo"), m_id(ID), alive(true), m_PV(10)
 {
     cout << "Nouveau poisson créé : " << m_nom << " (";
-    
+
     switch (m_sexe) {
         case 1:
             cout << "Mâle) " ;
@@ -26,26 +29,26 @@ Poisson::Poisson(unsigned int ID) : m_sexe(MALE), m_nom("Nemo"), m_id(ID), alive
             cout << "Femelle) " ;
 
             break;
-            
+
         default:
             break;
-    } 
+    }
 }
 
-Poisson::Poisson(SEXE sexe, std::string nom, unsigned int ID) : m_sexe(sexe), m_nom(nom), m_id(ID), alive(true), 
+Poisson::Poisson(SEXE sexe, std::string nom, unsigned int ID) : m_sexe(sexe), m_nom(nom), m_id(ID), alive(true),
                                                                 m_PV(10)
 {
     cout << "Nouveau poisson créé : " << m_nom << " (";
-    
+
     switch (m_sexe) {
         case 1:
             cout << "Mâle) " ;
             break;
         case 2:
             cout << "Femelle) " ;
-            
+
             break;
-            
+
         default:
             break;
     }
@@ -53,17 +56,17 @@ Poisson::Poisson(SEXE sexe, std::string nom, unsigned int ID) : m_sexe(sexe), m_
 
 Poisson::~Poisson()
 {
-    
+
 }
 
 void Poisson::doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues)
 {
-    
+
 }
 
 void Poisson::manger()
 {
-    
+
 }
 
 unsigned int Poisson::getID() const
@@ -79,8 +82,8 @@ string Poisson::getNom() const
 void Poisson::degats(int degats)
 {
     m_PV -= degats;
-    
-    if (m_PV <= 0) 
+
+    if (m_PV <= 0)
     {
         alive = false;
         cout << m_nom << " est mort." << endl;
@@ -93,7 +96,7 @@ bool Poisson::isAlive() const
 }
 
 //
-// =============================PoissonCarnivore==============================//    
+// =============================PoissonCarnivore==============================//
 Carnivore::Carnivore(unsigned int ID) : Poisson(ID)
 {
     cout << " /type : Carnivore" << endl;
@@ -110,14 +113,14 @@ Carnivore::Carnivore(SEXE sexe, std::string nom, unsigned int ID) : Poisson(sexe
 
 Carnivore::~Carnivore()
 {
-    
+
 }
-    
+
 void Carnivore::manger(const std::vector<Poisson*> &liste_poissons)
 {
-    
-    int i = rand() % (liste_poissons.size()+1);
-    
+
+    int i = rand() % (liste_poissons.size()/*+1*/);
+
     if(liste_poissons[i] != this && typeid(this)!=typeid(liste_poissons[i]) )
     {
         liste_poissons[i]->degats(4);
@@ -126,10 +129,10 @@ void Carnivore::manger(const std::vector<Poisson*> &liste_poissons)
     }
 }
 
-void Carnivore::doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues) 
+void Carnivore::doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues)
 {
     if (true) {
-        
+
         manger(poissons);
 
     }
@@ -156,21 +159,21 @@ Herbivore::Herbivore(SEXE sexe, std::string nom, unsigned int ID) : Poisson(sexe
 
 Herbivore::~Herbivore()
 {
-    
+
 }
 
 void Herbivore::manger(const std::vector<Algue*> &liste_algues)
 {
-    int i = rand() % (liste_algues.size()+1);
-    
-    
+    int i = rand() % (liste_algues.size()/*+1*/);
+
+
     liste_algues[i]->degats(2);
     m_PV += 3;
     cout << m_nom << " mange une algue et lui enlève 2PV, il en regagne 3" <<endl;
-    
+
 }
 
-void Herbivore::doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues) 
+void Herbivore::doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues)
 {
     manger(algues);
 }
@@ -190,10 +193,10 @@ Merou::Merou(SEXE sexe, std::string nom,unsigned int ID) : Carnivore(sexe,nom,ID
 
 }
 
-void Merou::afficher() const 
+void Merou::afficher() const
 {
     cout << "Je suis un Mérou (" << m_PV << "), je m'appelle : " << m_nom << " (" ;
-    
+
     switch (m_sexe) {
         case 1:
             cout << "Mâle) " << endl; ;
@@ -201,12 +204,12 @@ void Merou::afficher() const
         case 2:
             cout << "Femelle) " << endl; ;
             break;
-            
+
         default:
             break;
-            
-    
-            
+
+
+
     }
 }
 
@@ -226,22 +229,22 @@ Thon::Thon(SEXE sexe, std::string nom,unsigned int ID) : Carnivore(sexe,nom,ID)
 
 }
 
-void Thon::afficher() const 
+void Thon::afficher() const
 {
     cout << "Je suis un Thon (" << m_PV << "), je m'appelle : " << m_nom << " (" ;
-    
+
     switch (m_sexe) {
         case 1:
             cout << "Mâle) " << endl;
             break;
         case 2:
             cout << "Femelle) " << endl;
-            
+
             break;
-            
+
         default:
             break;
-            
+
             cout << "(" << m_PV << ")" << endl;
     }
 }
@@ -260,22 +263,22 @@ PoissonClown::PoissonClown(SEXE sexe, std::string nom,unsigned int ID) : Carnivo
     cout << " /espèce : Poisson Clown" << endl;
 }
 
-void PoissonClown::afficher() const 
+void PoissonClown::afficher() const
 {
     cout << "Je suis un Poisson Clown (" << m_PV << "), je m'appelle : " << m_nom << " (" ;
-    
+
     switch (m_sexe) {
         case 1:
             cout << "Mâle) " << endl;
             break;
         case 2:
             cout << "Femelle) " << endl;
-            
+
             break;
-            
+
         default:
             break;
-            
+
             cout << "(" << m_PV << ")" << endl;
     }
 }
@@ -291,25 +294,25 @@ Sole::Sole(unsigned int ID) : Herbivore(ID)
 Sole::Sole(SEXE sexe, std::string nom,unsigned int ID) : Herbivore(sexe,nom,ID)
 {
     cout << " /espèce : Sole" << endl;
-    
+
 }
 
-void Sole::afficher() const 
+void Sole::afficher() const
 {
     cout << "Je suis un Sole (" << m_PV << "), je m'appelle : " << m_nom << " (" ;
-    
+
     switch (m_sexe) {
         case 1:
             cout << "Mâle) " << endl;
             break;
         case 2:
             cout << "Femelle) " << endl;
-            
+
             break;
-            
+
         default:
             break;
-            
+
             cout << "(" << m_PV << ")" << endl;
     }
 }
@@ -327,25 +330,25 @@ Bar::Bar(unsigned int ID) : Herbivore(ID)
 Bar::Bar(SEXE sexe, std::string nom,unsigned int ID) : Herbivore(sexe,nom,ID)
 {
     cout << " /espèce : Bar" << endl;
-    
+
 }
 
-void Bar::afficher() const 
+void Bar::afficher() const
 {
     cout << "Je suis un Bar (" << m_PV << "), je m'appelle : " << m_nom << " (" ;
-    
+
     switch (m_sexe) {
         case 1:
             cout << "Mâle) " << endl;
             break;
         case 2:
             cout << "Femelle) " << endl;
-            
+
             break;
-            
+
         default:
             break;
-            
+
             cout << "(" << m_PV << ")" << endl;
     }
 }
@@ -364,22 +367,22 @@ Carpe::Carpe(SEXE sexe, std::string nom,unsigned int ID) : Herbivore(sexe,nom,ID
     cout << " /espèce : Carpe" << endl;
 }
 
-void Carpe::afficher() const 
+void Carpe::afficher() const
 {
     cout << "Je suis une Carpe (" << m_PV << "), je m'appelle : " << m_nom << " (" ;
-    
+
     switch (m_sexe) {
         case 1:
             cout << "Mâle) " << endl;
             break;
         case 2:
             cout << "Femelle) " << endl;
-            
+
             break;
-            
+
         default:
             break;
-            
+
             cout << "(" << m_PV << ")" << endl;
     }
 }
