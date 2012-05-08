@@ -11,6 +11,7 @@
 #include <cstdlib>
 #include <typeinfo>
 #include "Poisson.h"
+#include "Aquarium.h"
 
 using namespace std;
 
@@ -116,10 +117,10 @@ Carnivore::~Carnivore()
 
 }
 
-void Carnivore::manger(const Aquarium* aquarium)
+void Carnivore::manger(const Aquarium& aquarium)
 {
     Poisson *ptr = NULL;
-    bool ok = aquarium->getRandomPoisson(ptr);
+    bool ok = aquarium.getRandomPoisson(ptr);
 
     if (ok)
     {
@@ -129,7 +130,7 @@ void Carnivore::manger(const Aquarium* aquarium)
     }
 }
 
-void Carnivore::doSomething(const Aquarium* aquarium)
+void Carnivore::doSomething(const Aquarium& aquarium)
 {
     if (true) {
 
@@ -162,10 +163,10 @@ Herbivore::~Herbivore()
 
 }
 
-void Herbivore::manger(const Aquarium* aquarium)
+void Herbivore::manger(const Aquarium& aquarium)
 {
     Algue *ptr = NULL;
-    bool ok = aquarium->getRandomAlgue(ptr);
+    bool ok = aquarium.getRandomAlgue(ptr);
 
     if (ok)
     {
@@ -176,7 +177,7 @@ void Herbivore::manger(const Aquarium* aquarium)
 
 }
 
-void Herbivore::doSomething(const Aquarium* aquarium)
+void Herbivore::doSomething(const Aquarium& aquarium)
 {
     manger(aquarium);
 }

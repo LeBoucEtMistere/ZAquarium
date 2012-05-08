@@ -26,8 +26,8 @@ public:
     void run();
     void cleanAquarium();
 
-    bool getRandomPoisson(Poisson *ptr);
-    bool getRandomAlgue(Algue *ptr);
+    bool getRandomPoisson(Poisson*& ptr) const;
+    bool getRandomAlgue(Algue*& ptr) const;
 
 private:
 

@@ -159,7 +159,12 @@ void Aquarium::cleanAquarium()
     }
 }
 
-bool Aquarium::getRandomPoisson(Poisson *ptr)
+// You have to pass a reference to the pointer if you want to change it
+// Otherwise you are passing a COPY of the pointer...
+// But this is not a good method. I would suggest you return a Poisson*
+// And if there's nothing to return, you return a null ptr. So the caller will
+// check if hte pointer is null or not before using it.
+bool Aquarium::getRandomPoisson(Poisson*& ptr) const
 {
     if (m_poissons.empty()) return false;
 
@@ -168,7 +173,7 @@ bool Aquarium::getRandomPoisson(Poisson *ptr)
 
     return true;
 }
-bool Aquarium::getRandomAlgue(Algue *ptr)
+bool Aquarium::getRandomAlgue(Algue*& ptr) const
 {
     if (m_algues.empty()) return false;
     int i = rand() % (m_algues.size());

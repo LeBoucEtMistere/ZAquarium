@@ -14,9 +14,8 @@
 #include <string>
 #include <vector>
 #include "Algue.h"
-#include "Aquarium.h"
 
-
+class Aquarium;
 
 //
 // =============================Poisson==============================//
@@ -48,7 +47,7 @@ enum RACE {
  *  In Aquarium, you would add some method to retrieve either a Poisson or an Algue randomly.
  *  This would preserve encapsulation better and is more OO, we must think in terms of services.
 */
-    virtual void doSomething(const Aquarium* aquarium);
+    virtual void doSomething(const Aquarium& aquarium);
     virtual void manger() ;
     void degats(int degats);
 
@@ -82,8 +81,8 @@ public:
     Carnivore(SEXE sexe, std::string nom,unsigned int ID);
     virtual ~Carnivore();
     virtual void afficher() const =0;
-    void doSomething(const Aquarium* aquarium);
-    void manger(const Aquarium* aquarium);
+    void doSomething(const Aquarium& aquarium);
+    void manger(const Aquarium& aquarium);
 
 
 protected:
@@ -104,8 +103,8 @@ public:
     Herbivore(SEXE sexe, std::string nom,unsigned int ID);
     virtual ~Herbivore();
     virtual void afficher() const =0;
-    void doSomething(const Aquarium* aquarium);
-    void manger(const Aquarium* aquarium);
+    void doSomething(const Aquarium& aquarium);
+    void manger(const Aquarium& aquarium);
 
 
 protected:
