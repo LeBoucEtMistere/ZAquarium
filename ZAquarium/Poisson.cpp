@@ -17,7 +17,7 @@ using namespace std;
 //
 // =============================Poisson==============================//
 
-Poisson::Poisson(unsigned int ID) : m_sexe(MALE), m_nom("Nemo"), m_id(ID), alive(true), m_PV(10)
+Poisson::Poisson(unsigned int ID) : m_sexe(MALE), m_nom("Nemo"), m_id(ID), alive(true), m_PV(10), m_age(0)
 {
     cout << "Nouveau poisson créé : " << m_nom << " (";
 
@@ -118,22 +118,54 @@ Carnivore::~Carnivore()
 
 void Carnivore::manger(const std::vector<Poisson*> &liste_poissons)
 {
+<<<<<<< HEAD
 
     int i = rand() % (liste_poissons.size()/*+1*/);
 
     if(liste_poissons[i] != this && typeid(this)!=typeid(liste_poissons[i]) )
+=======
+    if (!liste_poissons.empty()) 
     {
-        liste_poissons[i]->degats(4);
-        m_PV += 5;
-        cout << m_nom << " mord " << liste_poissons[i]->getNom() << " et lui enlève 4PV, il en regagne 5" <<endl;
+        int i = rand() % (liste_poissons.size());
+        
+        if(liste_poissons[i] != this && typeid(this)!=typeid(liste_poissons[i]) )
+        {
+            liste_poissons[i]->degats(4);
+            m_PV += 5;
+            cout << m_nom << " mord " << liste_poissons[i]->getNom() << " et lui enlève 4PV." <<endl;
+        }
+        else
+        {
+            cout << m_nom << " ne trouve rien à manger." <<endl;
+
+        }
     }
+    else
+>>>>>>> BugFixes et implémentation début reproduction (encore bugé)
+    {
+        cout << m_nom << " ne trouve rien à manger." <<endl;
+
+    }
+    
 }
 
 void Carnivore::doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues)
 {
+<<<<<<< HEAD
     if (true) {
 
+=======
+
+    if (m_age<20) 
+    {
+>>>>>>> BugFixes et implémentation début reproduction (encore bugé)
         manger(poissons);
+        m_age++;
+    }
+    else
+    {
+        alive = false;
+        cout << m_nom << " décède de vieillesse" << endl;
 
     }
 }
@@ -164,6 +196,7 @@ Herbivore::~Herbivore()
 
 void Herbivore::manger(const std::vector<Algue*> &liste_algues)
 {
+<<<<<<< HEAD
     int i = rand() % (liste_algues.size()/*+1*/);
 
 
@@ -171,11 +204,38 @@ void Herbivore::manger(const std::vector<Algue*> &liste_algues)
     m_PV += 3;
     cout << m_nom << " mange une algue et lui enlève 2PV, il en regagne 3" <<endl;
 
+=======
+    if (liste_algues.empty()) 
+    {
+        cout << m_nom << " ne trouve rien à manger." <<endl;
+
+        return;
+    }
+    
+    int i = rand() % (liste_algues.size());
+    
+    
+    liste_algues[i]->degats(2);
+    m_PV += 3;
+    cout << m_nom << " mange une algue et lui enlève 2PV." <<endl;
+    
+>>>>>>> BugFixes et implémentation début reproduction (encore bugé)
 }
 
 void Herbivore::doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues)
 {
-    manger(algues);
+    if (m_age<20) 
+    {
+        manger(algues);
+        m_age++;
+    }
+    else
+    {
+        alive = false;
+        cout << m_nom << " décède de vieillesse" << endl;
+    }
+    
+
 }
 
 

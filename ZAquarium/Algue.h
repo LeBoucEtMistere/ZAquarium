@@ -9,6 +9,7 @@
 #ifndef ZAquarium_Algue_h
 #define ZAquarium_Algue_h
 
+
 class Algue
 {
 public:
@@ -27,6 +28,7 @@ protected:
      
     bool m_alive;
     int m_PV;
+    int m_age;
     
     
 };

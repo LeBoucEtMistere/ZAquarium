@@ -64,6 +64,7 @@ protected:
     unsigned int m_id;
     bool alive;
     int m_PV;
+    unsigned int m_age;
 
 
 };

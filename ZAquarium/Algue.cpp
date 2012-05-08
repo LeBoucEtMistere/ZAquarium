@@ -8,24 +8,43 @@
 
 #include <iostream>
 #include "Algue.h"
+#include "InterfaceReproduction.h"
 
 using namespace std;
 
 
 
-Algue::Algue() : m_alive(true), m_PV(10)
+Algue::Algue() : m_alive(true), m_PV(10), m_age(0)
 {
     cout << "Nouvelle algue créée" << endl;
 }
 
 void Algue::afficher()
 {
-    cout << "Je suis une algue" << endl;
+    cout << "Je suis une algue (" << m_PV << ")" << endl;
 }
 
 void Algue::doSomething()
 {
-    m_PV += 1;
+
+    if (m_age<20) 
+    {
+        if (m_PV >= 10) 
+        {
+        
+            IReproduction *interface= new IReproductionAlgue();
+            
+            delete interface;
+            
+        }
+        m_PV += 1;
+        m_age++;
+    }
+    else
+    {
+        m_alive = false;
+
+    }
 }
 
 void Algue::degats(unsigned int degats)

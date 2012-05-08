@@ -13,7 +13,7 @@
 using namespace std;
 
 
-Aquarium::Aquarium() : m_compteurPoissons(0)
+Aquarium::Aquarium(unsigned int toursMax) : m_compteurPoissons(0), m_tours(toursMax)
 {
 
 }
@@ -40,6 +40,10 @@ Aquarium::~Aquarium()
      */
     for (it = m_algues.begin(); it!= m_algues.end() ; ++it) {
         delete *it;
+<<<<<<< HEAD
+=======
+        
+>>>>>>> BugFixes et implémentation début reproduction (encore bugé)
     }
 
     vector<Poisson*>::iterator it2;
@@ -48,8 +52,12 @@ Aquarium::~Aquarium()
     for (it2 = m_poissons.begin(); it2!= m_poissons.end() ; ++it2) {
 
         delete *it2;
+<<<<<<< HEAD
         //m_poissons.erase(it2);
 
+=======
+        
+>>>>>>> BugFixes et implémentation début reproduction (encore bugé)
     }
 }
 
@@ -90,12 +98,21 @@ void Aquarium::ajouterAlgue()
 
 void Aquarium::run()
 {
+<<<<<<< HEAD
     for (int tour = 0; tour < 10; tour++)
     {
         //affichage
         cout << endl;
         cout << "=====TOUR " << tour << " ======" << endl;
 
+=======
+    for (int tour = 0; tour < m_tours; tour++) 
+    {
+        //affichage
+        cout << endl;
+        cout << "=====TOUR " << tour+1 << " ======" << endl;
+        
+>>>>>>> BugFixes et implémentation début reproduction (encore bugé)
         cout << "Poissons : " << endl;
         // Same remark as before. m_poisson.size() is computed at evey
         // iteration. Prefer stl algo, like for_each or C++11
@@ -108,8 +125,15 @@ void Aquarium::run()
         for (int i=0; i < m_algues.size(); i++) {
             m_algues[i]->afficher();
         }
+<<<<<<< HEAD
 
 
+=======
+        
+        
+        cout << endl;
+        
+>>>>>>> BugFixes et implémentation début reproduction (encore bugé)
         //exécution des actions
         for (int i=0; i < m_algues.size(); i++) {
             m_algues[i]->doSomething();
@@ -127,16 +151,35 @@ void Aquarium::run()
         // std::cin.get();
 
     }
+    
+    //affichage
+    cout << endl;
+    cout << "=====FIN======" << endl;
+    cout << "Poissons : " << endl;
+    for (int i=0; i < m_poissons.size(); i++) {
+        m_poissons[i]->afficher();
+    }
+    
+    cout << "Algues : " << endl;
+    for (int i=0; i < m_algues.size(); i++) {
+        m_algues[i]->afficher();
+    }
+    cout << endl;
 }
 
 void Aquarium::cleanAquarium()
 {
     vector<Algue*>::iterator it = m_algues.begin();
+<<<<<<< HEAD
 
     // This fixed the memory leak. But it shows that using stl algo
     // is safer and probably more efficient. Have you read about the
     // idiom remove erase ?
     // Good reading : STL Algorithms vs. Hand-Written Loops. http://www.drdobbs.com/cpp/184401446
+=======
+    
+    
+>>>>>>> BugFixes et implémentation début reproduction (encore bugé)
     while (it!= m_algues.end()) {
         if ((*it)->isAlive() != true) {
             delete *it;
@@ -144,10 +187,17 @@ void Aquarium::cleanAquarium()
         }
         else ++it;
     }
+<<<<<<< HEAD
 
     vector<Poisson*>::iterator it2= m_poissons.begin();
 
 
+=======
+    
+    vector<Poisson*>::iterator it2= m_poissons.begin();
+    
+    
+>>>>>>> BugFixes et implémentation début reproduction (encore bugé)
     while (it2!= m_poissons.end()) {
         if ((*it2)->isAlive() != true) {
             delete *it2;
