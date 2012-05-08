@@ -118,7 +118,7 @@ void Aquarium::run()
         }
 
         for (int i=0; i < m_poissons.size(); i++) {
-            m_poissons[i]->doSomething(m_poissons, m_algues);
+            m_poissons[i]->doSomething(*this);
         }
 
 

@@ -116,24 +116,24 @@ Carnivore::~Carnivore()
 
 }
 
-void Carnivore::manger(const std::vector<Poisson*> &liste_poissons)
+void Carnivore::manger(const Aquarium* aquarium)
 {
+    Poisson *ptr = NULL;
+    bool ok = aquarium->getRandomPoisson(ptr);
 
-    int i = rand() % (liste_poissons.size()/*+1*/);
-
-    if(liste_poissons[i] != this && typeid(this)!=typeid(liste_poissons[i]) )
+    if (ok)
     {
-        liste_poissons[i]->degats(4);
+        ptr->degats(4);
         m_PV += 5;
-        cout << m_nom << " mord " << liste_poissons[i]->getNom() << " et lui enlève 4PV, il en regagne 5" <<endl;
+        cout << m_nom << " mord " << ptr->getNom() << " et lui enlève 4PV, il en regagne 5" <<endl;
     }
 }
 
-void Carnivore::doSomething(const Aquarium& aquarium)
+void Carnivore::doSomething(const Aquarium* aquarium)
 {
     if (true) {
 
-        manger(poissons);
+        manger(aquarium);
 
     }
 }
@@ -162,20 +162,23 @@ Herbivore::~Herbivore()
 
 }
 
-void Herbivore::manger(const std::vector<Algue*> &liste_algues)
+void Herbivore::manger(const Aquarium* aquarium)
 {
-    int i = rand() % (liste_algues.size()/*+1*/);
+    Algue *ptr = NULL;
+    bool ok = aquarium->getRandomAlgue(ptr);
 
-
-    liste_algues[i]->degats(2);
-    m_PV += 3;
-    cout << m_nom << " mange une algue et lui enlève 2PV, il en regagne 3" <<endl;
+    if (ok)
+    {
+        ptr->degats(2);
+        m_PV += 3;
+        cout << m_nom << " mange une algue et lui enlève 2PV, il en regagne 3" <<endl;
+    }
 
 }
 
-void Herbivore::doSomething(const Aquarium& aquarium)
+void Herbivore::doSomething(const Aquarium* aquarium)
 {
-    manger(algues);
+    manger(aquarium);
 }
 
 
