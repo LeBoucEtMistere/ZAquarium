@@ -26,14 +26,11 @@ public:
     void run();
     void cleanAquarium();
 
-
 private:
 
-    std::vector<Poisson*> m_poissons;
+    std::vector<Poisson*> m_poissons; // Vector of pointers is not exeption safe. Should use vector of smart pointers.
     std::vector<Algue*> m_algues;
-    unsigned int m_compteurPoissons;
-
-
+    unsigned int m_compteurPoissons; //Would consider using type size_t
 };
 
 

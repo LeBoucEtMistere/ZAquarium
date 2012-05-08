@@ -22,12 +22,24 @@ Aquarium::~Aquarium()
 {
     vector<Algue*>::iterator it;
 
+    /* I would compute m_algues.end() before this loop. As it is,
+     * you're calling end() function at every iteration.
+     * Consider this
+     * vector<Algue*>::iterator it, itEnd = m_algues.end();
+     * for (it = m_algues.begin(); it!= itEnd ; ++it) {
+     */
 
+    /* Also it would be much nicer with C++11 syntax
+     * for(auto algue : m_algues) {
+     *      delete *algue;
+     * }
+     */
+
+    /* And final remark. If you were using vectors of smart pointers
+     * you would not even need to clean here.
+     */
     for (it = m_algues.begin(); it!= m_algues.end() ; ++it) {
-
         delete *it;
-        //m_algues.erase(it);
-
     }
 
     vector<Poisson*>::iterator it2;
@@ -85,6 +97,9 @@ void Aquarium::run()
         cout << "=====TOUR " << tour << " ======" << endl;
 
         cout << "Poissons : " << endl;
+        // Same remark as before. m_poisson.size() is computed at evey
+        // iteration. Prefer stl algo, like for_each or C++11
+        // for(auto poisson : m_poissons) { poisson->afficher(); }
         for (int i=0; i < m_poissons.size(); i++) {
             m_poissons[i]->afficher();
         }
@@ -108,6 +123,8 @@ void Aquarium::run()
         //retirer les morts
         cleanAquarium();
 
+        // Maybe here wait for a key input before displaying the next tour
+        // std::cin.get();
 
     }
 }
@@ -116,7 +133,10 @@ void Aquarium::cleanAquarium()
 {
     vector<Algue*>::iterator it = m_algues.begin();
 
-
+    // This fixed the memory leak. But it shows that using stl algo
+    // is safer and probably more efficient. Have you read about the
+    // idiom remove erase ?
+    // Good reading : STL Algorithms vs. Hand-Written Loops. http://www.drdobbs.com/cpp/184401446
     while (it!= m_algues.end()) {
         if ((*it)->isAlive() != true) {
             delete *it;

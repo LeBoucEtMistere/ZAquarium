@@ -39,9 +39,9 @@ Poisson::Poisson(SEXE sexe, std::string nom, unsigned int ID) : m_sexe(sexe), m_
                                                                 m_PV(10)
 {
     cout << "Nouveau poisson créé : " << m_nom << " (";
-
+    // DRY : Don't Repeat Yourself. You have twice this switch. We might consider refactoring.
     switch (m_sexe) {
-        case 1:
+        case 1: // For better reading, use your enum. case MALE:
             cout << "Mâle) " ;
             break;
         case 2:
@@ -99,8 +99,8 @@ bool Poisson::isAlive() const
 // =============================PoissonCarnivore==============================//
 Carnivore::Carnivore(unsigned int ID) : Poisson(ID)
 {
-    cout << " /type : Carnivore" << endl;
-    srand(time(0));
+    cout << " /type : Carnivore" << endl; // Prefer "\n" to endl. Better performances.
+    srand(time(0)); // This should only be called once, not at every Carnivore constructor.
 
 }
 
