@@ -7,6 +7,8 @@
 //
 
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 #include "Aquarium.h"
 
@@ -15,7 +17,7 @@ using namespace std;
 
 Aquarium::Aquarium() : m_compteurPoissons(0)
 {
-
+    srand(time(0));
 }
 
 Aquarium::~Aquarium()
@@ -53,25 +55,25 @@ Aquarium::~Aquarium()
     }
 }
 
-void Aquarium::ajouterPoisson(const string& nom, SEXE sexe, RACE race)
+void Aquarium::ajouterPoisson(const string& nom, Poisson::SEXE sexe, Poisson::RACE race)
 {
     switch (race) {
-        case MEROU:
+        case Poisson::MEROU:
             m_poissons.push_back(new Merou(sexe,nom,m_compteurPoissons));
             break;
-        case THON:
+        case Poisson::THON:
             m_poissons.push_back(new Thon(sexe,nom,m_compteurPoissons));
             break;
-        case POISSONCLOWN:
+        case Poisson::POISSONCLOWN:
             m_poissons.push_back(new PoissonClown(sexe,nom,m_compteurPoissons));
             break;
-        case SOLE:
+        case Poisson::SOLE:
             m_poissons.push_back(new Sole(sexe,nom,m_compteurPoissons));
             break;
-        case BAR:
+        case Poisson::BAR:
             m_poissons.push_back(new Bar(sexe,nom,m_compteurPoissons));
             break;
-        case CARPE:
+        case Poisson::CARPE:
             m_poissons.push_back(new Carpe(sexe,nom,m_compteurPoissons));
             break;
         default:
@@ -157,4 +159,20 @@ void Aquarium::cleanAquarium()
     }
 }
 
+bool Aquarium::getRandomPoisson(Poisson *ptr)
+{
+    if (m_poissons.empty()) return false;
 
+    int i = rand() % (m_poissons.size());
+    ptr = m_poissons[i];
+
+    return true;
+}
+bool Aquarium::getRandomAlgue(Algue *ptr)
+{
+    if (m_algues.empty()) return false;
+    int i = rand() % (m_algues.size());
+    ptr = m_algues[i];
+
+    return true;
+}

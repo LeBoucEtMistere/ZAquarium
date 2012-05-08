@@ -8,21 +8,8 @@
 
 #ifndef ZAquarium_Poisson_h
 #define ZAquarium_Poisson_h
-// I would make these enums part of the class Poisson public interface
-// You would access them like this : Poisson::MALE or Poisson:MEROU
-enum SEXE {
-    MALE = 1,
-    FEMELLE = 2
-};
 
-enum RACE {
-    MEROU = 1,
-    THON = 2,
-    POISSONCLOWN = 3,
-    SOLE = 4,
-    BAR = 5,
-    CARPE = 6
-};
+
 
 #include <string>
 #include <vector>
@@ -37,7 +24,21 @@ class Poisson
 
 public:
 
-    Poisson( unsigned int ID); //tyoe size_t
+    enum SEXE {
+    MALE = 1,
+    FEMELLE = 2
+};
+
+enum RACE {
+    MEROU = 1,
+    THON = 2,
+    POISSONCLOWN = 3,
+    SOLE = 4,
+    BAR = 5,
+    CARPE = 6
+};
+
+    Poisson( size_t ID);
     Poisson(SEXE sexe, std::string nom, unsigned int ID);
     virtual ~Poisson();
 
@@ -46,7 +47,7 @@ public:
  *  In Aquarium, you would add some method to retrieve either a Poisson or an Algue randomly.
  *  This would preserve encapsulation better and is more OO, we must think in terms of services.
 */
-    virtual void doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues);
+    virtual void doSomething(const Aquarium& aquarium);
     virtual void manger() ;
     void degats(int degats);
 
@@ -80,7 +81,7 @@ public:
     Carnivore(SEXE sexe, std::string nom,unsigned int ID);
     virtual ~Carnivore();
     virtual void afficher() const =0;
-    void doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues);
+    void doSomething(const Aquarium& aquarium);
     void manger(const std::vector<Poisson*> &poissons);
 
 
@@ -102,7 +103,7 @@ public:
     Herbivore(SEXE sexe, std::string nom,unsigned int ID);
     virtual ~Herbivore();
     virtual void afficher() const =0;
-    void doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues);
+    void doSomething(const Aquarium& aquarium);
     void manger(const std::vector<Algue*> &liste_algues);
 
 

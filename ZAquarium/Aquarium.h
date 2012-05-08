@@ -21,10 +21,13 @@ class Aquarium
 public:
     Aquarium();
     virtual ~Aquarium();
-    void ajouterPoisson(const std::string& nom, SEXE sexe, RACE race);
+    void ajouterPoisson(const std::string& nom, Poisson::SEXE sexe, Poisson::RACE race);
     void ajouterAlgue();
     void run();
     void cleanAquarium();
+
+    bool getRandomPoisson(Poisson *ptr);
+    bool getRandomAlgue(Algue *ptr);
 
 private:
 

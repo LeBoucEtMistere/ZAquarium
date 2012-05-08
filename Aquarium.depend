@@ -65,3 +65,36 @@
 	<iostream>
 	"Algue.h"
 
+1336491804 source:c:\documents and settings\paulette\bureau\arthur\zaquarium\zaquarium\aquarium.cpp
+	<iostream>
+	"Aquarium.h"
+
+1336492358 c:\documents and settings\paulette\bureau\arthur\zaquarium\zaquarium\aquarium.h
+	"Algue.h"
+	"Poisson.h"
+	<vector>
+	<string>
+
+1336491596 c:\documents and settings\paulette\bureau\arthur\zaquarium\zaquarium\algue.h
+
+1336492358 c:\documents and settings\paulette\bureau\arthur\zaquarium\zaquarium\poisson.h
+	<string>
+	<vector>
+	"Algue.h"
+
+1336491596 source:c:\documents and settings\paulette\bureau\arthur\zaquarium\zaquarium\poisson.cpp
+	<iostream>
+	<ctime>
+	<cstdlib>
+	<typeinfo>
+	"Poisson.h"
+
+1336491822 source:c:\documents and settings\paulette\bureau\arthur\zaquarium\zaquarium\main.cpp
+	<iostream>
+	"Aquarium.h"
+	<cstdlib>
+
+1336491596 source:c:\documents and settings\paulette\bureau\arthur\zaquarium\zaquarium\algue.cpp
+	<iostream>
+	"Algue.h"
+

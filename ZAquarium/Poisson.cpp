@@ -59,7 +59,7 @@ Poisson::~Poisson()
 
 }
 
-void Poisson::doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues)
+void Poisson::doSomething(const Aquarium& aquarium)
 {
 
 }
@@ -129,7 +129,7 @@ void Carnivore::manger(const std::vector<Poisson*> &liste_poissons)
     }
 }
 
-void Carnivore::doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues)
+void Carnivore::doSomething(const Aquarium& aquarium)
 {
     if (true) {
 
@@ -173,7 +173,7 @@ void Herbivore::manger(const std::vector<Algue*> &liste_algues)
 
 }
 
-void Herbivore::doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues)
+void Herbivore::doSomething(const Aquarium& aquarium)
 {
     manger(algues);
 }

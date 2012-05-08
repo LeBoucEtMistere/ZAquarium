@@ -16,9 +16,9 @@ int main (int argc, const char * argv[])
 {
     Aquarium monAquarium;
 
-    monAquarium.ajouterPoisson("Pinoquio", MALE, MEROU);
-    monAquarium.ajouterPoisson("Bambino", MALE, THON);
-    monAquarium.ajouterPoisson("Ella", FEMELLE, CARPE);
+    monAquarium.ajouterPoisson("Pinoquio", Poisson::MALE, Poisson::MEROU);
+    monAquarium.ajouterPoisson("Bambino", Poisson::MALE, Poisson::THON);
+    monAquarium.ajouterPoisson("Ella", Poisson::FEMELLE, Poisson::CARPE);
 
     monAquarium.ajouterAlgue();
     monAquarium.ajouterAlgue();
