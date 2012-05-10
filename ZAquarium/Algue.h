@@ -9,6 +9,8 @@
 #ifndef ZAquarium_Algue_h
 #define ZAquarium_Algue_h
 
+class Aquarium;
+
 
 class Algue
 {

@@ -7,6 +7,8 @@
 //
 
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 #include "Aquarium.h"
 
@@ -15,7 +17,7 @@ using namespace std;
 
 Aquarium::Aquarium(unsigned int toursMax) : m_compteurPoissons(0), m_tours(toursMax)
 {
-
+    srand(time(0));
 }
 
 Aquarium::~Aquarium()
@@ -40,46 +42,36 @@ Aquarium::~Aquarium()
      */
     for (it = m_algues.begin(); it!= m_algues.end() ; ++it) {
         delete *it;
-<<<<<<< HEAD
-=======
-        
->>>>>>> BugFixes et implémentation début reproduction (encore bugé)
+
     }
 
     vector<Poisson*>::iterator it2;
 
 
     for (it2 = m_poissons.begin(); it2!= m_poissons.end() ; ++it2) {
-
-        delete *it2;
-<<<<<<< HEAD
-        //m_poissons.erase(it2);
-
-=======
-        
->>>>>>> BugFixes et implémentation début reproduction (encore bugé)
+        delete *it2;        
     }
 }
 
-void Aquarium::ajouterPoisson(const string& nom, SEXE sexe, RACE race)
+void Aquarium::ajouterPoisson(const string& nom, Poisson::SEXE sexe, Poisson::RACE race)
 {
     switch (race) {
-        case MEROU:
+        case Poisson::MEROU:
             m_poissons.push_back(new Merou(sexe,nom,m_compteurPoissons));
             break;
-        case THON:
+        case Poisson::THON:
             m_poissons.push_back(new Thon(sexe,nom,m_compteurPoissons));
             break;
-        case POISSONCLOWN:
+        case Poisson::POISSONCLOWN:
             m_poissons.push_back(new PoissonClown(sexe,nom,m_compteurPoissons));
             break;
-        case SOLE:
+        case Poisson::SOLE:
             m_poissons.push_back(new Sole(sexe,nom,m_compteurPoissons));
             break;
-        case BAR:
+        case Poisson::BAR:
             m_poissons.push_back(new Bar(sexe,nom,m_compteurPoissons));
             break;
-        case CARPE:
+        case Poisson::CARPE:
             m_poissons.push_back(new Carpe(sexe,nom,m_compteurPoissons));
             break;
         default:
@@ -98,21 +90,14 @@ void Aquarium::ajouterAlgue()
 
 void Aquarium::run()
 {
-<<<<<<< HEAD
-    for (int tour = 0; tour < 10; tour++)
-    {
-        //affichage
-        cout << endl;
-        cout << "=====TOUR " << tour << " ======" << endl;
 
-=======
+
     for (int tour = 0; tour < m_tours; tour++) 
     {
         //affichage
         cout << endl;
         cout << "=====TOUR " << tour+1 << " ======" << endl;
         
->>>>>>> BugFixes et implémentation début reproduction (encore bugé)
         cout << "Poissons : " << endl;
         // Same remark as before. m_poisson.size() is computed at evey
         // iteration. Prefer stl algo, like for_each or C++11
@@ -125,22 +110,16 @@ void Aquarium::run()
         for (int i=0; i < m_algues.size(); i++) {
             m_algues[i]->afficher();
         }
-<<<<<<< HEAD
 
 
-=======
-        
-        
-        cout << endl;
-        
->>>>>>> BugFixes et implémentation début reproduction (encore bugé)
+
         //exécution des actions
         for (int i=0; i < m_algues.size(); i++) {
             m_algues[i]->doSomething();
         }
 
         for (int i=0; i < m_poissons.size(); i++) {
-            m_poissons[i]->doSomething(m_poissons, m_algues);
+            m_poissons[i]->doSomething(*this);
         }
 
 
@@ -170,16 +149,15 @@ void Aquarium::run()
 void Aquarium::cleanAquarium()
 {
     vector<Algue*>::iterator it = m_algues.begin();
-<<<<<<< HEAD
+
 
     // This fixed the memory leak. But it shows that using stl algo
     // is safer and probably more efficient. Have you read about the
     // idiom remove erase ?
     // Good reading : STL Algorithms vs. Hand-Written Loops. http://www.drdobbs.com/cpp/184401446
-=======
+
     
     
->>>>>>> BugFixes et implémentation début reproduction (encore bugé)
     while (it!= m_algues.end()) {
         if ((*it)->isAlive() != true) {
             delete *it;
@@ -187,17 +165,10 @@ void Aquarium::cleanAquarium()
         }
         else ++it;
     }
-<<<<<<< HEAD
-
-    vector<Poisson*>::iterator it2= m_poissons.begin();
-
-
-=======
     
     vector<Poisson*>::iterator it2= m_poissons.begin();
     
     
->>>>>>> BugFixes et implémentation début reproduction (encore bugé)
     while (it2!= m_poissons.end()) {
         if ((*it2)->isAlive() != true) {
             delete *it2;
@@ -208,3 +179,19 @@ void Aquarium::cleanAquarium()
 }
 
 
+Poisson* Aquarium::getRandomPoisson() const
+{
+    if (m_poissons.empty()) return NULL;
+
+    int i = rand() % (m_poissons.size());
+
+
+    return m_poissons[i];
+}
+Algue* Aquarium::getRandomAlgue() const
+{
+    if (m_algues.empty()) return NULL;
+    int i = rand() % (m_algues.size());
+
+    return m_algues[i];
+}

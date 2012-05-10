@@ -10,6 +10,8 @@
 #include <ctime>
 #include <cstdlib>
 #include <typeinfo>
+
+#include "Aquarium.h"
 #include "Poisson.h"
 
 using namespace std;
@@ -17,41 +19,19 @@ using namespace std;
 //
 // =============================Poisson==============================//
 
-Poisson::Poisson(unsigned int ID) : m_sexe(MALE), m_nom("Nemo"), m_id(ID), alive(true), m_PV(10), m_age(0)
+Poisson::Poisson(size_t ID) : m_sexe(MALE), m_nom("Nemo"), m_id(ID), alive(true), m_PV(10), m_age(0)
 {
     cout << "Nouveau poisson créé : " << m_nom << " (";
 
-    switch (m_sexe) {
-        case 1:
-            cout << "Mâle) " ;
-            break;
-        case 2:
-            cout << "Femelle) " ;
-
-            break;
-
-        default:
-            break;
-    }
+    afficherSexe();
 }
 
-Poisson::Poisson(SEXE sexe, std::string nom, unsigned int ID) : m_sexe(sexe), m_nom(nom), m_id(ID), alive(true),
+Poisson::Poisson(SEXE sexe, std::string nom, size_t ID) : m_sexe(sexe), m_nom(nom), m_id(ID), alive(true),
                                                                 m_PV(10)
 {
     cout << "Nouveau poisson créé : " << m_nom << " (";
     // DRY : Don't Repeat Yourself. You have twice this switch. We might consider refactoring.
-    switch (m_sexe) {
-        case 1: // For better reading, use your enum. case MALE:
-            cout << "Mâle) " ;
-            break;
-        case 2:
-            cout << "Femelle) " ;
-
-            break;
-
-        default:
-            break;
-    }
+    afficherSexe();
 }
 
 Poisson::~Poisson()
@@ -59,7 +39,7 @@ Poisson::~Poisson()
 
 }
 
-void Poisson::doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues)
+void Poisson::doSomething(const Aquarium& aquarium)
 {
 
 }
@@ -74,7 +54,7 @@ unsigned int Poisson::getID() const
     return m_id;
 }
 
-string Poisson::getNom() const
+string& Poisson::getNom()
 {
     return m_nom;
 }
@@ -95,19 +75,34 @@ bool Poisson::isAlive() const
     return alive;
 }
 
+void Poisson::afficherSexe() const
+{
+    switch (m_sexe) {
+        case MALE:
+            cout << "Mâle) " ;
+            break;
+        case FEMELLE:
+            cout << "Femelle) " ;
+            
+            break;
+            
+        default:
+            break;
+    }
+}
+
 //
 // =============================PoissonCarnivore==============================//
 Carnivore::Carnivore(unsigned int ID) : Poisson(ID)
 {
     cout << " /type : Carnivore" << endl; // Prefer "\n" to endl. Better performances.
-    srand(time(0)); // This should only be called once, not at every Carnivore constructor.
 
 }
 
 Carnivore::Carnivore(SEXE sexe, std::string nom, unsigned int ID) : Poisson(sexe,nom,ID)
 {
     cout << " /type : Carnivore" << endl;
-    srand(time(0));
+    
 
 }
 
@@ -116,32 +111,19 @@ Carnivore::~Carnivore()
 
 }
 
-void Carnivore::manger(const std::vector<Poisson*> &liste_poissons)
+void Carnivore::manger(const Aquarium& aquarium)
 {
-<<<<<<< HEAD
 
-    int i = rand() % (liste_poissons.size()/*+1*/);
 
-    if(liste_poissons[i] != this && typeid(this)!=typeid(liste_poissons[i]) )
-=======
-    if (!liste_poissons.empty()) 
+    Poisson *ptr = aquarium.getRandomPoisson();
+
+    if (ptr != NULL)
     {
-        int i = rand() % (liste_poissons.size());
-        
-        if(liste_poissons[i] != this && typeid(this)!=typeid(liste_poissons[i]) )
-        {
-            liste_poissons[i]->degats(4);
-            m_PV += 5;
-            cout << m_nom << " mord " << liste_poissons[i]->getNom() << " et lui enlève 4PV." <<endl;
-        }
-        else
-        {
-            cout << m_nom << " ne trouve rien à manger." <<endl;
-
-        }
+        ptr->degats(4);
+        m_PV += 5;
+        cout << m_nom << " mord " << ptr->getNom() << " et lui enlève 4PV, il en regagne 5" <<endl;
     }
     else
->>>>>>> BugFixes et implémentation début reproduction (encore bugé)
     {
         cout << m_nom << " ne trouve rien à manger." <<endl;
 
@@ -149,17 +131,12 @@ void Carnivore::manger(const std::vector<Poisson*> &liste_poissons)
     
 }
 
-void Carnivore::doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues)
+void Carnivore::doSomething(const Aquarium& aquarium)
 {
-<<<<<<< HEAD
-    if (true) {
-
-=======
-
+    
     if (m_age<20) 
     {
->>>>>>> BugFixes et implémentation début reproduction (encore bugé)
-        manger(poissons);
+        manger(aquarium);        
         m_age++;
     }
     else
@@ -174,14 +151,14 @@ void Carnivore::doSomething(const std::vector<Poisson*> &poissons,const std::vec
 
 //
 // =============================PoissonHerbivore==============================//
-Herbivore::Herbivore(unsigned int ID) : Poisson(ID)
+Herbivore::Herbivore(size_t ID) : Poisson(ID)
 {
     cout << " /type : Herbivore" << endl;
     srand(time(0));
 
 }
 
-Herbivore::Herbivore(SEXE sexe, std::string nom, unsigned int ID) : Poisson(sexe,nom,ID)
+Herbivore::Herbivore(SEXE sexe, std::string nom, size_t ID) : Poisson(sexe,nom,ID)
 {
     cout << " /type : Herbivore" << endl;
     srand(time(0));
@@ -194,39 +171,26 @@ Herbivore::~Herbivore()
 
 }
 
-void Herbivore::manger(const std::vector<Algue*> &liste_algues)
+void Herbivore::manger(const Aquarium& aquarium)
 {
-<<<<<<< HEAD
-    int i = rand() % (liste_algues.size()/*+1*/);
 
+    Algue *ptr = aquarium.getRandomAlgue();
 
-    liste_algues[i]->degats(2);
-    m_PV += 3;
-    cout << m_nom << " mange une algue et lui enlève 2PV, il en regagne 3" <<endl;
-
-=======
-    if (liste_algues.empty()) 
+    if (ptr != NULL)
     {
-        cout << m_nom << " ne trouve rien à manger." <<endl;
-
-        return;
+        ptr->degats(2);
+        m_PV += 3;
+        cout << m_nom << " mange une algue et lui enlève 2PV, il en regagne 3" <<endl;
     }
+
     
-    int i = rand() % (liste_algues.size());
-    
-    
-    liste_algues[i]->degats(2);
-    m_PV += 3;
-    cout << m_nom << " mange une algue et lui enlève 2PV." <<endl;
-    
->>>>>>> BugFixes et implémentation début reproduction (encore bugé)
 }
 
-void Herbivore::doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues)
+void Herbivore::doSomething(const Aquarium& aquarium)
 {
     if (m_age<20) 
     {
-        manger(algues);
+        manger(aquarium);        
         m_age++;
     }
     else
@@ -234,6 +198,8 @@ void Herbivore::doSomething(const std::vector<Poisson*> &poissons,const std::vec
         alive = false;
         cout << m_nom << " décède de vieillesse" << endl;
     }
+    
+
     
 
 }

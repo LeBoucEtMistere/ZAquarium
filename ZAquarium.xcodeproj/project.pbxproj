@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF3876D11559510B00C88B7B /* InterfaceReproduction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF3876D01559510B00C88B7B /* InterfaceReproduction.cpp */; };
 		CFB688FA154EBAF1003444B7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFB688F9154EBAF1003444B7 /* main.cpp */; };
 		CFB688FC154EBAF1003444B7 /* ZAquarium.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFB688FB154EBAF1003444B7 /* ZAquarium.1 */; };
 		CFB68904154EBB53003444B7 /* Aquarium.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFB68903154EBB53003444B7 /* Aquarium.cpp */; };
@@ -29,8 +28,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CF3876CE155950FF00C88B7B /* InterfaceReproduction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceReproduction.h; sourceTree = "<group>"; };
-		CF3876D01559510B00C88B7B /* InterfaceReproduction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InterfaceReproduction.cpp; sourceTree = "<group>"; };
 		CFB688F5154EBAF1003444B7 /* ZAquarium */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ZAquarium; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB688F9154EBAF1003444B7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CFB688FB154EBAF1003444B7 /* ZAquarium.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ZAquarium.1; sourceTree = "<group>"; };
@@ -79,8 +76,6 @@
 				CFB68906154EBB62003444B7 /* Poisson.cpp */,
 				CFB68908154EBB69003444B7 /* Algue.h */,
 				CFB68909154EBB6E003444B7 /* Algue.cpp */,
-				CF3876CE155950FF00C88B7B /* InterfaceReproduction.h */,
-				CF3876D01559510B00C88B7B /* InterfaceReproduction.cpp */,
 				CFB688FB154EBAF1003444B7 /* ZAquarium.1 */,
 			);
 			path = ZAquarium;
@@ -140,7 +135,6 @@
 				CFB68904154EBB53003444B7 /* Aquarium.cpp in Sources */,
 				CFB68907154EBB62003444B7 /* Poisson.cpp in Sources */,
 				CFB6890A154EBB6E003444B7 /* Algue.cpp in Sources */,
-				CF3876D11559510B00C88B7B /* InterfaceReproduction.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

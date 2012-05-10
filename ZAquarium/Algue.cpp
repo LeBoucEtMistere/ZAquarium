@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include "Algue.h"
-#include "InterfaceReproduction.h"
 
 using namespace std;
 
@@ -32,9 +31,7 @@ void Algue::doSomething()
         if (m_PV >= 10) 
         {
         
-            IReproduction *interface= new IReproductionAlgue();
-            
-            delete interface;
+            //reproduction
             
         }
         m_PV += 1;

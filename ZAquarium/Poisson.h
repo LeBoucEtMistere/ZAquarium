@@ -8,9 +8,23 @@
 
 #ifndef ZAquarium_Poisson_h
 #define ZAquarium_Poisson_h
-// I would make these enums part of the class Poisson public interface
-// You would access them like this : Poisson::MALE or Poisson:MEROU
-enum SEXE {
+
+
+
+#include <string>
+#include <vector>
+#include "Algue.h"
+
+class Aquarium;
+
+//
+// =============================Poisson==============================//
+class Poisson
+{
+
+public:
+
+    enum SEXE {
     MALE = 1,
     FEMELLE = 2
 };
@@ -24,35 +38,18 @@ enum RACE {
     CARPE = 6
 };
 
-#include <string>
-#include <vector>
-#include "Algue.h"
-
-
-
-//
-// =============================Poisson==============================//
-class Poisson
-{
-
-public:
-
-    Poisson( unsigned int ID); //tyoe size_t
-    Poisson(SEXE sexe, std::string nom, unsigned int ID);
+    Poisson(size_t ID);
+    Poisson(SEXE sexe, std::string nom, size_t ID);
     virtual ~Poisson();
 
     virtual void afficher() const =0;
-/*  I would pass a reference to the Aquarium here instead of passing these 2 vectors.
- *  In Aquarium, you would add some method to retrieve either a Poisson or an Algue randomly.
- *  This would preserve encapsulation better and is more OO, we must think in terms of services.
-*/
-    virtual void doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues);
+
+    virtual void doSomething(const Aquarium& aquarium);
     virtual void manger() ;
     void degats(int degats);
 
     unsigned int getID() const;
-    //Maybe return a const std::string&
-    std::string getNom() const;
+    std::string& getNom() ;
     bool isAlive() const;
 
 
@@ -65,6 +62,8 @@ protected:
     bool alive;
     int m_PV;
     unsigned int m_age;
+    
+    void afficherSexe() const;
 
 
 };
@@ -81,8 +80,8 @@ public:
     Carnivore(SEXE sexe, std::string nom,unsigned int ID);
     virtual ~Carnivore();
     virtual void afficher() const =0;
-    void doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues);
-    void manger(const std::vector<Poisson*> &poissons);
+    void doSomething(const Aquarium& aquarium);
+    void manger(const Aquarium& aquarium);
 
 
 protected:
@@ -99,12 +98,12 @@ class Herbivore : public Poisson
 
 public:
 
-    Herbivore(unsigned int ID);
-    Herbivore(SEXE sexe, std::string nom,unsigned int ID);
+    Herbivore(size_t ID);
+    Herbivore(SEXE sexe, std::string nom,size_t ID);
     virtual ~Herbivore();
     virtual void afficher() const =0;
-    void doSomething(const std::vector<Poisson*> &poissons,const std::vector<Algue*> &algues);
-    void manger(const std::vector<Algue*> &liste_algues);
+    void doSomething(const Aquarium& aquarium);
+    void manger(const Aquarium& aquarium);
 
 
 protected:
