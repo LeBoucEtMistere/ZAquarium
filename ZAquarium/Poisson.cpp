@@ -30,7 +30,6 @@ Poisson::Poisson(SEXE sexe, std::string nom, size_t ID) : m_sexe(sexe), m_nom(no
                                                                 m_PV(10)
 {
     cout << "Nouveau poisson créé : " << m_nom << " (";
-    // DRY : Don't Repeat Yourself. You have twice this switch. We might consider refactoring.
     afficherSexe();
 }
 
@@ -83,9 +82,9 @@ void Poisson::afficherSexe() const
             break;
         case FEMELLE:
             cout << "Femelle) " ;
-            
+
             break;
-            
+
         default:
             break;
     }
@@ -102,7 +101,7 @@ Carnivore::Carnivore(unsigned int ID) : Poisson(ID)
 Carnivore::Carnivore(SEXE sexe, std::string nom, unsigned int ID) : Poisson(sexe,nom,ID)
 {
     cout << " /type : Carnivore" << endl;
-    
+
 
 }
 
@@ -128,15 +127,15 @@ void Carnivore::manger(const Aquarium& aquarium)
         cout << m_nom << " ne trouve rien à manger." <<endl;
 
     }
-    
+
 }
 
 void Carnivore::doSomething(const Aquarium& aquarium)
 {
-    
-    if (m_age<20) 
+
+    if (m_age<20)
     {
-        manger(aquarium);        
+        manger(aquarium);
         m_age++;
     }
     else
@@ -183,14 +182,14 @@ void Herbivore::manger(const Aquarium& aquarium)
         cout << m_nom << " mange une algue et lui enlève 2PV, il en regagne 3" <<endl;
     }
 
-    
+
 }
 
 void Herbivore::doSomething(const Aquarium& aquarium)
 {
-    if (m_age<20) 
+    if (m_age<20)
     {
-        manger(aquarium);        
+        manger(aquarium);
         m_age++;
     }
     else
@@ -198,9 +197,9 @@ void Herbivore::doSomething(const Aquarium& aquarium)
         alive = false;
         cout << m_nom << " décède de vieillesse" << endl;
     }
-    
 
-    
+
+
 
 }
 

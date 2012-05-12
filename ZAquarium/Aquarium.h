@@ -20,6 +20,8 @@
 
 #include <vector>
 #include <string>
+#include <memory>
+
 
 class Aquarium
 {
@@ -37,13 +39,13 @@ public:
 
 private:
 
-    std::vector<Poisson*> m_poissons; // Vector of pointers is not exeption safe. Should use vector of smart pointers.
-    std::vector<Algue*> m_algues;
+    std::vector<std::shared_ptr<Poisson> > m_poissons; // Vector of pointers is not exeption safe. Should use vector of smart pointers.
+    std::vector<std::shared_ptr<Algue> > m_algues;
 
     size_t m_compteurPoissons;
     unsigned int m_tours;
-    
-    
+
+
 };
 
 
