@@ -97,7 +97,7 @@ void Aquarium::run()
         for(auto algue : m_algues) { algue->afficher(); }
 
         //exécution des actions
-        for(auto algue : m_algues) { algue->doSomething(); }
+        for(auto algue : m_algues) { algue->doSomething(*this); }
 
         for(auto poisson : m_poissons) { poisson->doSomething(*this); }
 
@@ -160,3 +160,17 @@ Algue* Aquarium::getRandomAlgue() const
 
     return m_algues[i].get();
 }
+
+
+void Aquarium::reproductionAlgue(int PV)
+{
+    ajouterAlgue(PV);
+}
+
+void Aquarium::ajouterAlgue(int PV)
+{
+    shared_ptr<Algue> ptr (new Algue(PV));
+    m_algues.push_back(ptr);
+}
+
+

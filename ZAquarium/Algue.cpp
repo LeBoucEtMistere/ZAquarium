@@ -18,23 +18,43 @@ Algue::Algue() : m_alive(true), m_PV(10), m_age(0)
     cout << "Nouvelle algue créée" << endl;
 }
 
+Algue::Algue(int PV) : m_PV(PV)
+{
+
+}
+
 void Algue::afficher()
 {
     cout << "Je suis une algue (" << m_PV << ")" << endl;
 }
 
-void Algue::doSomething()
+void Algue::doSomething(const Aquarium& aquarium)
 {
 
-    if (m_age<20) 
+    if (m_age<20)
     {
-        if (m_PV >= 10) 
+        if (m_PV >= 10)
         {
-        
+
             //reproduction
-            
+            int pv = m_PV;
+
+            if (pv%2 == 1)
+            {
+                pv -=1;
+                pv/=2;
+            }
+
+            else pv/=2;
+
+
+            aquarium.reproductionAlgue(pv);
+            m_PV /= 2;
+
         }
-        m_PV += 1;
+
+        else m_PV += 1;
+
         m_age++;
     }
     else
@@ -47,8 +67,8 @@ void Algue::doSomething()
 void Algue::degats(unsigned int degats)
 {
     m_PV -= degats;
-    
-    if (m_PV <= 0) 
+
+    if (m_PV <= 0)
     {
         m_alive = false;
     }

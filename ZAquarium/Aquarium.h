@@ -33,6 +33,7 @@ public:
     void ajouterAlgue();
     void run();
     void cleanAquarium();
+    void reproductionAlgue(int PV);
 
     Poisson* getRandomPoisson() const;
     Algue* getRandomAlgue() const;
@@ -45,6 +46,7 @@ private:
     size_t m_compteurPoissons;
     unsigned int m_tours;
 
+    void ajouterAlgue(int PV);
 
 };
 
