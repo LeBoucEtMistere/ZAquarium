@@ -39,7 +39,7 @@ public:
 
 private:
 
-    std::vector<std::shared_ptr<Poisson> > m_poissons; // Vector of pointers is not exeption safe. Should use vector of smart pointers.
+    std::vector<std::shared_ptr<Poisson> > m_poissons;
     std::vector<std::shared_ptr<Algue> > m_algues;
 
     size_t m_compteurPoissons;

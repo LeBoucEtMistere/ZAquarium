@@ -94,7 +94,7 @@ void Poisson::afficherSexe() const
 // =============================PoissonCarnivore==============================//
 Carnivore::Carnivore(unsigned int ID) : Poisson(ID)
 {
-    cout << " /type : Carnivore" << endl; // Prefer "\n" to endl. Better performances.
+    cout << " /type : Carnivore" << endl;
 
 }
 
