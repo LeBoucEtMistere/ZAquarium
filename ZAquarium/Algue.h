@@ -9,30 +9,31 @@
 #ifndef ZAquarium_Algue_h
 #define ZAquarium_Algue_h
 
-class Aquarium;
 
+class Aquarium;
 
 class Algue
 {
 public:
-    
+
     Algue();
-    
+    Algue(int PV);
+
     void afficher();
-    void doSomething();
+    void doSomething(const Aquarium& aquarium);
     void degats(unsigned int degats);
-    
+
     bool isAlive() const;
 
-    
-    
+
+
 protected:
-     
+
     bool m_alive;
     int m_PV;
     int m_age;
-    
-    
+
+
 };
 
 #endif

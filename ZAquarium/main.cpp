@@ -16,10 +16,10 @@ int main (int argc, const char * argv[])
 {
 
 
-    srand(time(0));
+
 
     Aquarium monAquarium(21);
-    
+
     monAquarium.ajouterPoisson("Pinoquio", Poisson::MALE, Poisson::MEROU);
     monAquarium.ajouterPoisson("Bambino", Poisson::MALE, Poisson::THON);
     monAquarium.ajouterPoisson("Ella", Poisson::FEMELLE, Poisson::CARPE);
@@ -28,7 +28,7 @@ int main (int argc, const char * argv[])
     monAquarium.ajouterPoisson("Ben", Poisson::MALE, Poisson::SOLE);
 
 
-    
+
     monAquarium.ajouterAlgue();
     monAquarium.ajouterAlgue();
     monAquarium.ajouterAlgue();
