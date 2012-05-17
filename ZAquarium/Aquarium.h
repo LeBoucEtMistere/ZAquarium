@@ -9,18 +9,15 @@
 #ifndef ZAquarium_Aquarium_h
 #define ZAquarium_Aquarium_h
 
-
-#include "Algue.h"
-
-
+#include <vector>
+#include <string>
+#include <memory>
 
 #include "Poisson.h"
 #include "Algue.h"
 
 
-#include <vector>
-#include <string>
-#include <memory>
+
 
 
 class Aquarium

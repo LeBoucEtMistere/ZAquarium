@@ -13,6 +13,7 @@
 
 #include "Aquarium.h"
 #include "Poisson.h"
+#include "Algue.h"
 
 using namespace std;
 

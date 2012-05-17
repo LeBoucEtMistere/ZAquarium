@@ -20,7 +20,7 @@ public:
     Algue(int PV);
 
     void afficher();
-    void doSomething(const Aquarium& aquarium);
+    void doSomething(Aquarium& aquarium);
     void degats(unsigned int degats);
 
     bool isAlive() const;

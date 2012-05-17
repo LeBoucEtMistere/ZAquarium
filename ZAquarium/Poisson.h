@@ -13,8 +13,9 @@
 
 #include <string>
 #include <vector>
-#include "Algue.h"
 
+
+class Algue;
 class Aquarium;
 
 //
@@ -62,7 +63,7 @@ protected:
     bool alive;
     int m_PV;
     unsigned int m_age;
-    
+
     void afficherSexe() const;
 
 
