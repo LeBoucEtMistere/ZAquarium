@@ -13,6 +13,7 @@
 
 #include "Aquarium.h"
 #include "Poisson.h"
+#include "Algue.h"
 
 using namespace std;
 
@@ -43,10 +44,7 @@ void Poisson::doSomething(const Aquarium& aquarium)
 
 }
 
-void Poisson::manger()
-{
 
-}
 
 unsigned int Poisson::getID() const
 {
@@ -110,7 +108,7 @@ Carnivore::~Carnivore()
 
 }
 
-void Carnivore::manger(const Aquarium& aquarium)
+void Carnivore::manger(Aquarium& aquarium)
 {
 
 
@@ -130,7 +128,7 @@ void Carnivore::manger(const Aquarium& aquarium)
 
 }
 
-void Carnivore::doSomething(const Aquarium& aquarium)
+void Carnivore::doSomething(Aquarium& aquarium)
 {
 
     if (m_age<20)
@@ -170,7 +168,7 @@ Herbivore::~Herbivore()
 
 }
 
-void Herbivore::manger(const Aquarium& aquarium)
+void Herbivore::manger(Aquarium& aquarium)
 {
 
     Algue *ptr = aquarium.getRandomAlgue();
@@ -185,7 +183,7 @@ void Herbivore::manger(const Aquarium& aquarium)
 
 }
 
-void Herbivore::doSomething(const Aquarium& aquarium)
+void Herbivore::doSomething(Aquarium& aquarium)
 {
     if (m_age<20)
     {

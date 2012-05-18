@@ -7,7 +7,10 @@
 //
 
 #include <iostream>
+
 #include "Algue.h"
+#include "Aquarium.h"
+
 
 using namespace std;
 
@@ -28,7 +31,7 @@ void Algue::afficher()
     cout << "Je suis une algue (" << m_PV << ")" << endl;
 }
 
-void Algue::doSomething(const Aquarium& aquarium)
+void Algue::doSomething(Aquarium& aquarium)
 {
 
     if (m_age<20)

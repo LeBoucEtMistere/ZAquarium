@@ -13,8 +13,9 @@
 
 #include <string>
 #include <vector>
-#include "Algue.h"
 
+
+class Algue;
 class Aquarium;
 
 //
@@ -45,7 +46,7 @@ enum RACE {
     virtual void afficher() const =0;
 
     virtual void doSomething(const Aquarium& aquarium);
-    virtual void manger() ;
+    virtual void manger(Aquarium &aquarium) =0;
     void degats(int degats);
 
     unsigned int getID() const;
@@ -62,7 +63,7 @@ protected:
     bool alive;
     int m_PV;
     unsigned int m_age;
-    
+
     void afficherSexe() const;
 
 
@@ -80,8 +81,8 @@ public:
     Carnivore(SEXE sexe, std::string nom,unsigned int ID);
     virtual ~Carnivore();
     virtual void afficher() const =0;
-    void doSomething(const Aquarium& aquarium);
-    void manger(const Aquarium& aquarium);
+    void doSomething(Aquarium& aquarium);
+    void manger(Aquarium& aquarium);
 
 
 protected:
@@ -102,8 +103,8 @@ public:
     Herbivore(SEXE sexe, std::string nom,size_t ID);
     virtual ~Herbivore();
     virtual void afficher() const =0;
-    void doSomething(const Aquarium& aquarium);
-    void manger(const Aquarium& aquarium);
+    void doSomething(Aquarium& aquarium);
+    void manger(Aquarium& aquarium);
 
 
 protected:
