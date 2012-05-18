@@ -39,7 +39,7 @@ Poisson::~Poisson()
 
 }
 
-void Poisson::doSomething(const Aquarium& aquarium)
+void Poisson::doSomething(Aquarium& aquarium)
 {
 
 }
@@ -114,7 +114,7 @@ void Carnivore::manger(Aquarium& aquarium)
 
     Poisson *ptr = aquarium.getRandomPoisson();
 
-    if (ptr != NULL)
+    if (ptr)
     {
         ptr->degats(4);
         m_PV += 5;
@@ -173,7 +173,7 @@ void Herbivore::manger(Aquarium& aquarium)
 
     Algue *ptr = aquarium.getRandomAlgue();
 
-    if (ptr != NULL)
+    if (ptr)
     {
         ptr->degats(2);
         m_PV += 3;

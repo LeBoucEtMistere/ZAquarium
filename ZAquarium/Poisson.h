@@ -45,7 +45,7 @@ enum RACE {
 
     virtual void afficher() const =0;
 
-    virtual void doSomething(const Aquarium& aquarium);
+    virtual void doSomething(Aquarium& aquarium);
     virtual void manger(Aquarium &aquarium) =0;
     void degats(int degats);
 
