@@ -21,7 +21,11 @@ Algue::Algue() : m_alive(true), m_PV(9), m_age(0)
     cout << "Nouvelle algue créée" << endl;
 }
 
+<<<<<<< HEAD
 Algue::Algue(int PV) : m_PV(PV),m_alive(true), m_age(0)
+=======
+Algue::Algue(int PV) : m_alive(true), m_PV(PV), m_age(0)
+>>>>>>> a1eb793ae2294fb65bc35b473d1a713cbcf618cd
 {
 
 }

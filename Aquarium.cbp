@@ -7,8 +7,8 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Aquarium" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
+				<Option output="bin\Debug\Aquarium" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -17,8 +17,8 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/Aquarium" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
+				<Option output="bin\Release\Aquarium" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Release\" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -30,16 +30,17 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++0x" />
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="ZAquarium/Algue.cpp" />
-		<Unit filename="ZAquarium/Algue.h" />
-		<Unit filename="ZAquarium/Aquarium.cpp" />
-		<Unit filename="ZAquarium/Aquarium.h" />
-		<Unit filename="ZAquarium/Poisson.cpp" />
-		<Unit filename="ZAquarium/Poisson.h" />
-		<Unit filename="ZAquarium/main.cpp" />
+		<Unit filename="ZAquarium\Algue.cpp" />
+		<Unit filename="ZAquarium\Algue.h" />
+		<Unit filename="ZAquarium\Aquarium.cpp" />
+		<Unit filename="ZAquarium\Aquarium.h" />
+		<Unit filename="ZAquarium\Poisson.cpp" />
+		<Unit filename="ZAquarium\Poisson.h" />
+		<Unit filename="ZAquarium\main.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

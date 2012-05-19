@@ -97,18 +97,32 @@ void Aquarium::run()
         for(auto algue : m_algues) { algue->afficher(); }
 
         //exécution des actions
-        if(m_algues.capacity() < 2* m_algues.size()) m_algues.reserve(2* m_algues.size());
-        for(auto algue : m_algues) { algue->doSomething(*this); }
+        if(m_algues.capacity() < 2* m_algues.size())
+        {
+            m_algues.reserve(2* m_algues.size());
+        }
+        for(auto algue : m_algues)
+        {
+            algue->doSomething(*this);
+        }
 
+<<<<<<< HEAD
         if(m_poissons.capacity() < 3* m_poissons.size()) m_poissons.reserve(3* m_poissons.size());
         for(auto poisson : m_poissons) { poisson->doSomething(*this); }
+=======
+        if(m_poissons.capacity() < 2* m_poissons.size()) m_poissons.reserve(2* m_poissons.size());
+        for(auto poisson : m_poissons)
+        {
+            poisson->doSomething(*this);
+        }
+>>>>>>> a1eb793ae2294fb65bc35b473d1a713cbcf618cd
 
 
 
         //retirer les morts
         cleanAquarium();
 
-        // std::cin.get();
+         std::cin.get();
 
     }
 
