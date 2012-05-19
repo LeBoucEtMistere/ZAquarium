@@ -16,12 +16,12 @@ using namespace std;
 
 
 
-Algue::Algue() : m_alive(true), m_PV(10), m_age(0)
+Algue::Algue() : m_alive(true), m_PV(9), m_age(0)
 {
     cout << "Nouvelle algue créée" << endl;
 }
 
-Algue::Algue(int PV) : m_PV(PV)
+Algue::Algue(int PV) : m_PV(PV),m_alive(true), m_age(0)
 {
 
 }

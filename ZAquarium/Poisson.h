@@ -45,7 +45,7 @@ enum RACE {
 
     virtual void afficher() const =0;
 
-    virtual void doSomething(const Aquarium& aquarium);
+    virtual void doSomething(Aquarium& aquarium);
     virtual void manger(Aquarium &aquarium) =0;
     void degats(int degats);
 
@@ -81,8 +81,8 @@ public:
     Carnivore(SEXE sexe, std::string nom,unsigned int ID);
     virtual ~Carnivore();
     virtual void afficher() const =0;
-    void doSomething(Aquarium& aquarium);
-    void manger(Aquarium& aquarium);
+    virtual void doSomething(Aquarium& aquarium);
+    virtual void manger(Aquarium& aquarium);
 
 
 protected:
@@ -103,8 +103,8 @@ public:
     Herbivore(SEXE sexe, std::string nom,size_t ID);
     virtual ~Herbivore();
     virtual void afficher() const =0;
-    void doSomething(Aquarium& aquarium);
-    void manger(Aquarium& aquarium);
+    virtual void doSomething(Aquarium& aquarium);
+    virtual void manger(Aquarium& aquarium);
 
 
 protected:

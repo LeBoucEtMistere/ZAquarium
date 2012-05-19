@@ -39,7 +39,7 @@ Poisson::~Poisson()
 
 }
 
-void Poisson::doSomething(const Aquarium& aquarium)
+void Poisson::doSomething(Aquarium& aquarium)
 {
 
 }
